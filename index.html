@@ -1,4 +1,316 @@
 <!DOCTYPE html>
+import base64
+
+# I will generate the HTML code for the new advanced bilingual dashboard.
+# The dashboard will include:
+# 1. The professional Hero Section with the requested text in a neon border.
+# 2. All previous sections (Ballistic, UAV, Launcher, USV, UUV) converted to bilingual format.
+# 3. The professional styling (Glassmorphism, Neon, Dark Mode).
+# 4. The dual-language audio engine placeholders.
+
+html_content = """
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City2027 Advanced Strategic Dashboard</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0c;
+            --card-bg: rgba(25, 25, 30, 0.8);
+            --neon-blue: #00d4ff;
+            --neon-purple: #9d00ff;
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --accent-gradient: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section Style */
+        .hero-card {
+            background: var(--card-bg);
+            border: 2px solid var(--neon-blue);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .hero-item {
+            padding: 10px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .hero-item h4 {
+            margin: 5px 0;
+            color: var(--neon-blue);
+            font-size: 1rem;
+        }
+
+        .hero-item p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        /* Dashboard Cards */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(157, 0, 255, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card-title-en { font-size: 0.9rem; color: var(--text-dim); font-weight: bold; }
+        .card-title-fa { font-size: 1.2rem; color: var(--neon-blue); margin-top: 5px; }
+
+        .content-area {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .bilingual-text {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 2px solid var(--neon-purple);
+        }
+
+        .en-text {
+            direction: ltr;
+            text-align: left;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        /* Audio Buttons */
+        .audio-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-audio {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .btn-audio:hover {
+            background: var(--neon-blue);
+            color: #000;
+        }
+
+        /* Special Note Box */
+        .golden-note {
+            background: linear-gradient(90deg, rgba(157, 0, 255, 0.1), transparent);
+            border-right: 4px solid var(--neon-purple);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION: THE STRATEGIC CORE -->
+    <div class="hero-card">
+        <div class="hero-content">
+            <div class="hero-title">
+                استراتژی‌های مهندسی سیستم و بهینه‌سازی عملیات تولید (City2027)
+                <div class="en-text" style="text-align: center; font-size: 1.1rem;">
+                    System Engineering & Production Operations Strategies
+                </div>
+            </div>
+            <div class="hero-grid">
+                <div class="hero-item">
+                    <h4>طراحی سیستم‌های تولیدی</h4>
+                    <p>Manufacturing System Architecture</p>
+                </div>
+                <div class="hero-item">
+                    <h4>چیدمان کارخانه</h4>
+                    <p>Facility Layout Optimization</p>
+                </div>
+                <div class="hero-item">
+                    <h4>بالانس خطوط مونتاژ</h4>
+                    <p>Assembly Line Balancing</p>
+                </div>
+                <div class="hero-item">
+                    <h4>مدیریت زنجیره تأمین داخلی</h4>
+                    <p>Internal Supply Chain Management</p>
+                </div>
+            </div>
+            <div class="hero-item" style="margin-top: 20px; border: none;">
+                <h4>استراتژی حذف گلوگاه و کمینه‌سازی زمان تولید</h4>
+                <p>Bottleneck Mitigation & Cycle Time Minimization</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="golden-note" dir="rtl">
+        🌟 نکته طلایی پروژه: “ما محصول نمی‌سازیم، ما «توان تولید» (Capability) می‌سازیم.”
+    </div>
+
+    <!-- DASHBOARD CONTENT -->
+    <div class="dashboard-grid">
+
+        <!-- BALLISTIC -->
+        <div class-="card">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-fa">بالستیک (Ballistic)</div>
+                    <div class="card-title-en">Ballistic Systems</div>
+                </div>
+                <div class="content-area">
+                    <div class="bilingual-text">
+                        <div class="fa-text">تمرکز بر سوخت جامد، کالیبراسیون مسیر و تست‌های آیرودینامیکی در سرعت‌های مافوق صوت.</div>
+                        <div class="en-text">Focus on solid propulsion, trajectory calibration, and supersonic aerodynamic testing.</div>
+                    </div>
+                    <div class="audio-controls">
+                        <button class="btn-audio">🔊 FA</button>
+                        <button class="btn-audio">🔊 EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- UAV -->
+        <div class="card">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-fa">پهپاد (UAV)</div>
+                    <div class="card-title-en">Unmanned Aerial Vehicles</div>
+                </div>
+                <div class="content-area">
+                    <div class="bilingual-text">
+                        <div class="fa-text">ناوبری خودکار با بینایی ماشین (CNN/YOLO)، مدیریت انرژی (BMS) و پروتکل‌های MAVLink.</div>
+                        <div class="en-text">Autonomous navigation via Computer Vision (CNN/YOLO), Power Management (BMS), and MAVLink protocols.</div>
+                    </div>
+                    <div class="audio-controls">
+                        <button class="btn-audio">🔊 FA</button>
+                        <button class="btn-audio">🔊 EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LAUNCHER -->
+        <div class="card">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-fa">لانچر (Launcher)</div>
+                    <div class="card-title-en">Launcher Systems</div>
+                </div>
+                <div class="content-area">
+                    <div class="bilingual-text">
+                        <div class="fa-text">ساختارهای سنگین، سیستم‌های هدایت الکترومکانیکی و تست عملگرها (Actuators).</div>
+                        <div class="en-text">Heavy structures, electromechanical guidance systems, and actuator testing.</div>
+                    </div>
+                    <div class="audio-controls">
+                        <button class="btn-audio">🔊 FA</button>
+                        <button class="btn-audio">🔊 EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- USV -->
+        <div class="card">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title-fa">شناور سطحی (USV)</div>
+                    <div class="card-title-en">Unmanned Surface Vehicles</div>
+                </div>
+                <div class="content-area">
+                    <div class="bilingual-text">
+                        <div class="fa-text">بدنه کامپوزیتی، سیستم‌های رانش و ناوبری خودکار با اکولو و رادار.</div>
+                        <div class="en-text">Composite hulls, propulsion systems, and autonomous navigation with Echo & Radar.</div>
+                    </div>
+                    <div class="audio-controls">
+                        <button class="btn-audio">🔊 FA</button>
+                        <button class="btn-audio">🔊 EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
